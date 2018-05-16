@@ -14,7 +14,7 @@
     /// </summary>
     [TestFixture]
     [Parallelizable(ParallelScope.Fixtures)]
-    class TestClass2 : BaseTest
+    public class TestClass2 : BaseTest
     {
         [Test]
         [Parallelizable(ParallelScope.Self)]

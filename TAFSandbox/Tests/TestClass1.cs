@@ -39,12 +39,15 @@
         [Parallelizable(ParallelScope.Self)]
         public void Test2()
         {
-            DriverUtils.GoToUrl("https://www.yandex.by/");
-            Thread.Sleep(2000);
-            DriverUtils.TypeInElement(By.Id("text"), "google");
-            Thread.Sleep(4000);
-            DriverUtils.Submit(By.Id("text"));
-            Thread.Sleep(3000);
+            DriverUtils.GoToUrl("http://the-internet.herokuapp.com/key_presses");
+            var keys = new[] { Keys.LeftControl + "a", Keys.F12, Keys.F12 };
+
+            DriverUtils.PressKeys(/*keys*/);
+            //Thread.Sleep(2000);
+            //DriverUtils.TypeInElement(By.Id("text"), "google");
+            //Thread.Sleep(4000);
+            //DriverUtils.Submit(By.Id("text"));
+            //Thread.Sleep(3000);
         }
     }
 }

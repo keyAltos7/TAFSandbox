@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAFSandbox", "TAFSandbox\TAFSandbox.csproj", "{7CBB8000-34D4-4FDE-9B67-5FF38DD6AF9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternsTrainingExamples", "PatternsTrainingExamples\PatternsTrainingExamples.csproj", "{3F6192B1-81F3-4D6F-9C2E-03051E3D8C75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7CBB8000-34D4-4FDE-9B67-5FF38DD6AF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CBB8000-34D4-4FDE-9B67-5FF38DD6AF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CBB8000-34D4-4FDE-9B67-5FF38DD6AF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F6192B1-81F3-4D6F-9C2E-03051E3D8C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F6192B1-81F3-4D6F-9C2E-03051E3D8C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F6192B1-81F3-4D6F-9C2E-03051E3D8C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F6192B1-81F3-4D6F-9C2E-03051E3D8C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
