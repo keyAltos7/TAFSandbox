@@ -1,5 +1,6 @@
 ﻿namespace TAFSandbox.Utils
 {
+    using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Interactions;
     using System.Collections.ObjectModel;
@@ -35,6 +36,7 @@
 
         public static void TypeInElement(By locator, string text, string driverKey)
         {
+            TestContext.WriteLine($"Set '{text} into '{locator}'");
             var driver = GetDriverByKey(driverKey);
             driver.FindElement(locator).SendKeys(text);
         }
@@ -46,6 +48,8 @@
 
         public static void Submit(By locator, string driverKey)
         {
+
+            TestContext.WriteLine($"Submit the '{locator}' button");
             var driver = GetDriverByKey(driverKey);
             driver.FindElement(locator).Submit();
         }

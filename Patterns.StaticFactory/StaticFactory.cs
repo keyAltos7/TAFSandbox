@@ -1,28 +1,28 @@
-﻿using System;
-
-namespace PatternsTrainingExamples
+﻿namespace Patterns.StaticFactory
 {
-    /// <summary>
+	using System;
+
+	/// <summary>
     /// Client to Consume a Swift Car from the Swift Car Factory
     /// </summary>
     class ClientClass
     {
-        //public static void Main(string[] args)
-        //{
-        //    //the basic Swift car of Blue color -Creation
-        //    SwiftCar BlueBasicSwiftCar = SwiftCarFactory.CreateSwiftCar(SwiftCarType.BASIC, CarColor.BLUE);
+        public static void Main(string[] args)
+        {
+            //the basic Swift car of Blue color -Creation
+            SwiftCar BlueBasicSwiftCar = SwiftCarFactory.CreateSwiftCar(SwiftCarType.BASIC, CarColor.BLUE);
 
-        //    //Computation of Price
-        //    float BlueBasicSwiftCarPrice = BlueBasicSwiftCar.CaliculatePrice();
-        //    Console.WriteLine("price of Blue Basic Swift car" + BlueBasicSwiftCarPrice);
+            //Computation of Price
+            float BlueBasicSwiftCarPrice = BlueBasicSwiftCar.CaliculatePrice();
+            Console.WriteLine("price of Blue Basic Swift car" + BlueBasicSwiftCarPrice);
 
-        //    //the Red Featured Swift car of Blue color -Creation
-        //    SwiftCar RedFeaturedSwiftCar = SwiftCarFactory.CreateSwiftCar(SwiftCarType.FEATURED, CarColor.RED);
+            //the Red Featured Swift car of Blue color -Creation
+            SwiftCar RedFeaturedSwiftCar = SwiftCarFactory.CreateSwiftCar(SwiftCarType.FEATURED, CarColor.RED);
 
-        //    // Computation of Price
-        //    float RedFeaturedSwiftCarPrice = RedFeaturedSwiftCar.CaliculatePrice();
-        //    Console.WriteLine("price of  Red Featured Swift car" + RedFeaturedSwiftCarPrice);
-        //}
+            // Computation of Price
+            float RedFeaturedSwiftCarPrice = RedFeaturedSwiftCar.CaliculatePrice();
+            Console.WriteLine("price of  Red Featured Swift car" + RedFeaturedSwiftCarPrice);
+        }
     }
 
     /// <summary>
@@ -149,3 +149,48 @@ namespace PatternsTrainingExamples
         public abstract float CaliculatePrice();
     }
 }
+
+
+// // TAF SMP
+//public static class WebDriverFactory
+//{
+//	/// <summary>
+//	/// Create instance of IWebDriver depends on BrowserName
+//	/// </summary>
+//	/// <returns></returns>
+//	public static IWebDriver CreateWebDriver(IWebDriverSettings settings)
+//	{
+//		Guard.ForNull(settings, nameof(settings));
+//		IWebDriverFactory factory;
+
+//		switch (settings.BrowserName)
+//		{
+//			case BrowserName.Chrome:
+//				factory = new ChromeDriverFactory();
+//				break;
+
+//			case BrowserName.ChromeBeta:
+//				factory = new ChromeBetaDriverFactory();
+//				break;
+
+//			case BrowserName.Firefox:
+//				factory = new FirefoxDriverFactory();
+//				break;
+
+//			case BrowserName.InternetExplorer:
+//				factory = new InternetExplorerDriverFactory();
+//				break;
+
+//			case BrowserName.MicrosoftEdge:
+//				factory = new EdgeDriverFactory();
+//				break;
+
+//			default:
+//				throw new InvalidEnumArgumentException(FormattableString.Invariant($"The browser is unsupported: {settings.BrowserName}"));
+//		}
+
+//		return factory.GetDriver(settings);
+//	}
+//}
+
+

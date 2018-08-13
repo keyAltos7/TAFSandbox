@@ -1,24 +1,25 @@
-﻿using System;
-
-namespace PatternsTrainingExamples
+﻿namespace Patterns.AbstractFactory
 {
-    //class Program1
-    //{
-    //    static void Main(string[] args)
-    //    {
-    //        Hero elf = new Hero(new ElfFactory());
-    //        Console.WriteLine($"Elf");
-    //        elf.Hit();
-    //        elf.Run();
+	using System;
 
-    //        Hero Warrior = new Hero(new WarriorFactory());
-    //        Console.WriteLine($"Warrior");
-    //        Warrior.Hit();
-    //        Warrior.Run();
+    class Program1
+    {
+        static void Main(string[] args)
+        {
+            Hero elf = new Hero(new ElfFactory());
+            Console.WriteLine($"Elf");
+            elf.Hit();
+            elf.Run();
 
-    //        Console.ReadLine();
-    //    }
-    //}
+            Hero Warrior = new Hero(new WarriorFactory());
+            Console.WriteLine($"Warrior");
+            Warrior.Hit();
+            Warrior.Run();
+
+            Console.ReadLine();
+        }
+    }
+
     //абстрактный класс - оружие
     abstract class Weapon
     {
@@ -101,16 +102,56 @@ namespace PatternsTrainingExamples
         private Movement movement;
         public Hero(HeroFactory factory)
         {
-            weapon = factory.CreateWeapon();
-            movement = factory.CreateMovement();
+            this.weapon = factory.CreateWeapon();
+            this.movement = factory.CreateMovement();
         }
         public void Run()
         {
-            movement.Move();
+            this.movement.Move();
         }
         public void Hit()
         {
-            weapon.Hit();
+            this.weapon.Hit();
         }
     }
 }
+
+
+///// <summary>
+///// Factory for local WebDriver
+///// </summary>
+//internal interface IWebDriverFactory
+//{
+//	/// <summary>
+//	/// Create options
+//	/// </summary>
+//	DriverOptions CreateOptions(WebDriverFactoryArgs args);
+
+//	/// <summary>
+//	/// Create Driver
+//	/// </summary>
+//	IWebDriver CreateDriver(DriverOptions options);
+//}
+
+///// <summary>
+///// Create ChromeDriver
+///// </summary>
+//internal class ChromeDriverFactory : IWebDriverFactory
+//{
+//	/// <inheritdoc />
+//	public IWebDriver CreateDriver(DriverOptions options)
+//	{
+//		return new ChromeDriver(options as ChromeOptions);
+//	}
+
+//	/// <inheritdoc />
+//	public DriverOptions CreateOptions(WebDriverFactoryArgs args)
+//	{
+//		Validator.CheckParamatersForNull(args);
+//		var options = ChromeOptionsFactory.Create(args);
+//		return options;
+//	}
+//}
+
+//var options = factory.CreateOptions(args);
+//return factory.CreateDriver(options);
