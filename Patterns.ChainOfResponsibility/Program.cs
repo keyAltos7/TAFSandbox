@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Patterns.ChainOfResponsibility
+﻿namespace Patterns.ChainOfResponsibility
 {
     using System;
 
@@ -39,7 +33,7 @@ namespace Patterns.ChainOfResponsibility
 
                 // Generate and process request
 
-                int[] requests = { 2, 5, 14, 22, 18, 3, 27, 20 };
+                int[] requests = { 2, 5, 14, 22, 18, 3, 27, 20, 31 };
 
                 foreach (int request in requests)
                 {
@@ -59,7 +53,6 @@ namespace Patterns.ChainOfResponsibility
         /// </summary>
 
         abstract class Handler
-
         {
             protected Handler successor;
 
@@ -82,7 +75,7 @@ namespace Patterns.ChainOfResponsibility
         {
             public override void HandleRequest(int request)
             {
-                if (request >= 0 && request < 10)
+                if (request >= 0 && request < 15)
                 {
                     Console.WriteLine("{0} handled request {1}",
                       this.GetType().Name, request);
@@ -145,33 +138,33 @@ namespace Patterns.ChainOfResponsibility
 
 //public class ArasFilterListHanlder : BaseElementHandler
 //{
-//	/// <inheritdoc />
-//	public override BaseWebElement Handle(IWebElement element)
-//	{
-//		if (ElementHelper.Instance.IsElementPresent(By.CssSelector(".aras-filter-list .aras-filter-list__input"), element))
-//		{
-//			return new ArasFilterListElement(element);
-//		}
-//		else if (Successor != null)
-//		{
-//			return Successor.Handle(element);
-//		}
-//		return null;
-//	}
+//    /// <inheritdoc />
+//    public override BaseWebElement Handle(IWebElement element)
+//    {
+//        if (ElementHelper.Instance.IsElementPresent(By.CssSelector(".aras-filter-list .aras-filter-list__input"), element))
+//        {
+//            return new ArasFilterListElement(element);
+//        }
+//        else if (Successor != null)
+//        {
+//            return Successor.Handle(element);
+//        }
+//        return null;
+//    }
 //}
 
 //public class CellService
 //{
-//	public void SetCombobox(int rowNum, int colNum, string value)
-//	{
-//		GridComponent.GridData.Rows[rowNum].Cells[colNum].SelectCurrentCell();
-//		DojoFilterListHandler dojoHandler = new DojoFilterListHandler();
-//		ArasFilterListHanlder arasHandler = new ArasFilterListHanlder();
-//		dojoHandler.Successor = arasHandler;
-//		BaseFilterList filterList =
-//			dojoHandler.Handle(GridComponent.GridData.Rows[rowNum].Cells[colNum].Element) as BaseFilterList;
-//		filterList.SelectOption(value);
-//	}
+//    public void SetCombobox(int rowNum, int colNum, string value)
+//    {
+//        GridComponent.GridData.Rows[rowNum].Cells[colNum].SelectCurrentCell();
+//        DojoFilterListHandler dojoHandler = new DojoFilterListHandler();
+//        ArasFilterListHanlder arasHandler = new ArasFilterListHanlder();
+//        dojoHandler.Successor = arasHandler;
+//        BaseFilterList filterList =
+//            dojoHandler.Handle(GridComponent.GridData.Rows[rowNum].Cells[colNum].Element) as BaseFilterList;
+//        filterList.SelectOption(value);
+//    }
 //}
 
 

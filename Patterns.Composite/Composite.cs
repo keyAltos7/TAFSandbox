@@ -80,42 +80,43 @@ namespace PatternsTrainingExamples
 //public abstract class CompositeAction : IAction<Unit>, IEnumerable<IAction<Unit>>
 //#pragma warning restore CA1710
 //{
-//	protected CompositeAction(params IAction<Unit>[] actions)
-//	{
-//	}
+//    protected CompositeAction(params IAction<Unit>[] actions)
+//    {
+//    }
 
-//	public CompositeAction And(IAction<Unit> action)
-//	{
-//		Guard.ForNull(action, nameof(action));
-//		return new AnonymousCompositeAction(Actions.Add(action));
-//	}
+//    public CompositeAction And(IAction<Unit> action)
+//    {
+//        Guard.ForNull(action, nameof(action));
+//        return new AnonymousCompositeAction(Actions.Add(action));
+//    }
 
-//	public Unit ExecuteAttemptsToAs(IInnerActorFacade actor)
-//	{
-//		return ExecuteActions(actor);
-//	}
+//    public Unit ExecuteAttemptsToAs(IInnerActorFacade actor)
+//    {
+//        return ExecuteActions(actor);
+//    }
 
-//	private Unit ExecuteActions(IInnerActorFacade actor)
-//	{
-//		Guard.ForNull(actor, nameof(actor));
-//		foreach (var action in Actions)
-//		{
-//			actor.Execute(action);
-//		}
+//    private Unit ExecuteActions(IInnerActorFacade actor)
+//    {
+//        Guard.ForNull(actor, nameof(actor));
+//        foreach (var action in Actions)
+//        {
+//            actor.Execute(action);
+//        }
 
-//		return Unit.Default;
-//	}
+//        return Unit.Default;
+//    }
 
-//	public void ExampleOfUsing()
-//	{
-//		actor.Execute(Enter.TheNewValue(credentials.LoginName).
-//			Into(LoginPageElements.UserNameInputField).
-//			And(Enter.TheNewValue(credentials.Password).Into(LoginPageElements.PasswordInputField)).
-//			And(Select.TheText(credentials.DatabaseName).
-//				Into(LoginPageElements.DatabaseSelectField)).
-//			And(Click.On(LoginPageElements.LogOnButton)).
-//			And(Wait.UntilTargetIsPresent(HeaderElements.Logo)).
-//			And(Wait.UntilTargetIsPresent(HeaderElements.UserMenuButton)));
+//    public void ExampleOfUsing()
+//    {
+//	    actor.Execute(someAction);
+//        actor.Execute(Enter.TheNewValue(credentials.LoginName).
+//            Into(LoginPageElements.UserNameInputField).
+//            And(Enter.TheNewValue(credentials.Password).Into(LoginPageElements.PasswordInputField)).
+//            And(Select.TheText(credentials.DatabaseName).
+//                Into(LoginPageElements.DatabaseSelectField)).
+//            And(Click.On(LoginPageElements.LogOnButton)).
+//            And(Wait.UntilTargetIsPresent(HeaderElements.Logo)).
+//            And(Wait.UntilTargetIsPresent(HeaderElements.UserMenuButton)));
 //    }
 //}
 

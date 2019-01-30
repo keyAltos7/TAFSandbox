@@ -19,7 +19,7 @@ namespace PatternsTrainingExamples
             Pizza pizza3 = new BulgerianPizza();
             pizza3 = new TomatoPizza(pizza3);
             pizza3 = new CheesePizza(pizza3);// болгарская пиццы с томатами и сыром
-	        //pizza3 = new CheesePizza(pizza3);
+	        pizza3 = new CheesePizza(pizza3);
             Console.WriteLine("Название: {0}", pizza3.Name);
             Console.WriteLine("Цена: {0}", pizza3.GetCost());
 
@@ -249,90 +249,91 @@ namespace PatternsTrainingExamples
 //    #endregion
 //}
 
-// //----------------------------------CheckBoxElement------------------------------------------------------------------------------
+////----------------------------------CheckBoxElement------------------------------------------------------------------------------
 //public class CheckBoxElement : BaseWebElement, ICheckBox
 //{
-//	/// <summary>
-//	/// Initializes a new instance of the <see cref="CheckBoxElement"/> class.
-//	/// </summary>
-//	/// <param name="webElementContainer">WebElement container.</param>
-//	public CheckBoxElement(IWebElement webElementContainer) : base(webElementContainer, By.TagName("input"))
-//	{
+//    /// <summary>
+//    /// Initializes a new instance of the <see cref="CheckBoxElement"/> class.
+//    /// </summary>
+//    /// <param name="webElementContainer">WebElement container.</param>
+//    public CheckBoxElement(IWebElement webElementContainer) : base(webElementContainer, By.TagName("input"))
+//    {
 
-//	}
+//    }
 
-//	/// <summary>
-//	/// Initializes a new instance of the <see cref="CheckBoxElement"/> class.
-//	/// </summary>
-//	/// <param name="webElementContainer">WebElement container.</param>
-//	/// <param name="by">Criteria by which we can find element in WebElement container.</param>
-//	public CheckBoxElement(IWebElement webElementContainer, By by) : base(webElementContainer, by)
-//	{
+//    /// <summary>
+//    /// Initializes a new instance of the <see cref="CheckBoxElement"/> class.
+//    /// </summary>
+//    /// <param name="webElementContainer">WebElement container.</param>
+//    /// <param name="by">Criteria by which we can find element in WebElement container.</param>
+//    public CheckBoxElement(IWebElement webElementContainer, By by) : base(webElementContainer, by)
+//    {
 
-//	}
+//    }
 
-//	/// <summary>
-//	/// Gets state of checkBox
-//	/// </summary>
-//	public bool IsChecked
-//	{
-//		get
-//		{
-//			return WebElement.Selected;
-//		}
-//	}
+//    /// <summary>
+//    /// Gets state of checkBox
+//    /// </summary>
+//    public bool IsChecked
+//    {
+//        get
+//        {
+//            return WebElement.Selected;
+//        }
+//    }
 
-//	/// <summary>
-//	/// Select or unselect element depend on value of state
-//	/// </summary>
-//	/// <param name="state">
-//	/// Set state of checkBox (true-selected, false-unselected)
-//	/// </param>
-//	public void SetState(bool state)
-//	{
-//		if (IsChecked != state)
-//		{
-//			ElementHelper.Instance.Click(WebElement);
-//		}
-//	}
+//    /// <summary>
+//    /// Select or unselect element depend on value of state
+//    /// </summary>
+//    /// <param name="state">
+//    /// Set state of checkBox (true-selected, false-unselected)
+//    /// </param>
+//    public void SetState(bool state)
+//    {
+//        if (IsChecked != state)
+//        {
+//            ElementHelper.Instance.Click(WebElement);
+//        }
+//    }
 //}
 
-// //----------------------------------CheckBoxFactory------------------------------------------------------------------------------
+////----------------------------------CheckBoxFactory------------------------------------------------------------------------------
 
 //public class CheckBoxFactory : IWebElementFactory<CheckBoxElement>
 //{
-//	/// <summary>
-//	/// Create CheckBoxElement from cell
-//	/// </summary>
-//	public static CheckBoxElement Create(ICell cell)
-//	{
-//		Validator.CheckParamatersForNull(cell);
-//		return new CheckBoxElement(cell.Element);
-//	}
+//    /// <summary>
+//    /// Create CheckBoxElement from cell
+//    /// </summary>
+//    public static CheckBoxElement Create(ICell cell)
+//    {
+//        Validator.CheckParamatersForNull(cell);
+//        return new CheckBoxElement(cell.Element);
+//    }
 
-//	CheckBoxElement IWebElementFactory<CheckBoxElement>.Create(ICell cell)
-//	{
-//		return Create(cell);
-//	}
+//    CheckBoxElement IWebElementFactory<CheckBoxElement>.Create(ICell cell)
+//    {
+//        return Create(cell);
+//    }
 //}
 
 
-// //----------------------------------Using------------------------------------------------------------------------------
+////----------------------------------Using------------------------------------------------------------------------------
 
 
 //public void DefineMultiSelectBoxFieldByNameAndSelectValues(string fieldName, List<string> values)
 //{
-//Validator.CheckParamatersForNull(values);
-//IWebElement field = DefineFieldByName(fieldName);
-//IWebElement overSelect = field.FindElement(By.CssSelector(".multiselect .overSelect"));
-//IWebElement checkboxes = field.FindElement(By.CssSelector(".multiselect #checkboxes"));
-//checkboxes.FindElements(By.TagName("label"));
-//overSelect.Click();
-//foreach (string value in values)
-//{
-//	var checkboxContainer = checkboxes.FindElement(By.XPath("//label[text()='" + value + "']"));
-//	ElementHelper.MoveToElement(checkboxContainer);
-//	CheckBoxFactory.Create(checkboxContainer).SetState(true);
-//}
-//overSelect.Click();
+//    Validator.CheckParamatersForNull(values);
+//    IWebElement field = DefineFieldByName(fieldName);
+//    IWebElement overSelect = field.FindElement(By.CssSelector(".multiselect .overSelect"));
+//    IWebElement checkboxes = field.FindElement(By.CssSelector(".multiselect #checkboxes"));
+//    checkboxes.FindElements(By.TagName("label"));
+//    overSelect.Click();
+//    foreach (string value in values)
+//    {
+//        var checkboxContainer = checkboxes.FindElement(By.XPath("//label[text()='" + value + "']"));
+//        ElementHelper.MoveToElement(checkboxContainer);
+//	    ElementFactory.GetElement(ElementType.Checbox, checkboxContainer);
+//        CheckBoxFactory.Create(checkboxContainer).SetState(true);
+//    }
+//    overSelect.Click();
 //}

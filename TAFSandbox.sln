@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.PageObject", "Patt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.ChainOfResponsibility", "Patterns.ChainOfResponsibility\Patterns.ChainOfResponsibility.csproj", "{17AA7316-812C-40F1-84C9-A8D498A70254}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resharper.Sandbox", "Resharper.Sandbox\Resharper.Sandbox.csproj", "{803016EA-8725-48F7-81DC-D709CDD0B541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDif", "ImageDif\ImageDif.csproj", "{3CDAE107-8938-4012-946F-521C7B53AC92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{17AA7316-812C-40F1-84C9-A8D498A70254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17AA7316-812C-40F1-84C9-A8D498A70254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17AA7316-812C-40F1-84C9-A8D498A70254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803016EA-8725-48F7-81DC-D709CDD0B541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803016EA-8725-48F7-81DC-D709CDD0B541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803016EA-8725-48F7-81DC-D709CDD0B541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803016EA-8725-48F7-81DC-D709CDD0B541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDAE107-8938-4012-946F-521C7B53AC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDAE107-8938-4012-946F-521C7B53AC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDAE107-8938-4012-946F-521C7B53AC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDAE107-8938-4012-946F-521C7B53AC92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

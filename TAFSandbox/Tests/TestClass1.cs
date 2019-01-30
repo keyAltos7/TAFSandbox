@@ -1,6 +1,8 @@
 ﻿namespace TAFSandbox.Tests
 {
-    using System.Threading;
+	using System;
+	using System.Drawing;
+	using System.Threading;
 
     using NUnit.Framework;
 
@@ -52,5 +54,51 @@
             //DriverUtils.Submit(By.Id("text"));
             //Thread.Sleep(3000);
         }
-    }
+
+	    [Test]
+	    [Parallelizable(ParallelScope.Self)]
+	    public void ScreenshotForElement()
+	    {
+			DriverUtils.GoToUrl("http://192.168.200.198/i7251_12UI");
+		    Thread.Sleep(5000);
+		    var driver = DriverPool.GetDriver(TestNameResolver.GetCurrentTestName());
+			driver.SwitchTo().Frame("main");
+			DriverUtils.TypeInElement(By.Id("password"), "innovator");
+		    DriverUtils.TypeInElement(By.Id("username"), "admin");
+		    driver.FindElement(By.Id("login.login_btn_label")).Click();
+
+			Thread.Sleep(1000);
+		    driver.SwitchTo().DefaultContent();
+		    Thread.Sleep(2000);
+
+
+
+			DriverUtils.CaptureElementScreenShot(By.CssSelector(".aras-header__logo svg use"), "InnovatorLogo");
+
+		  //  var diff = Compare(
+			 //   @"C:\Users\kapatsevich\Desktop\Screenshots\GoogleLogo.png",
+				//@"C:\Users\kapatsevich\Desktop\Screenshots\logo original.png");
+	    }
+
+	    [Test]
+	    [Parallelizable(ParallelScope.Self)]
+	    public void Screenshot()
+	    {
+		    DriverUtils.GoToUrl("http://192.168.200.198/i7251_12UI");
+		    Thread.Sleep(2000);
+		    var driver = DriverPool.GetDriver(TestNameResolver.GetCurrentTestName());
+		    driver.SwitchTo().Frame("main");
+		    DriverUtils.TypeInElement(By.Id("password"), "innovator");
+		    DriverUtils.TypeInElement(By.Id("username"), "admin");
+		    driver.FindElement(By.Id("login.login_btn_label")).Click();
+		    Thread.Sleep(1000);
+		    driver.SwitchTo().DefaultContent();
+		    Thread.Sleep(2000);
+
+		    DriverUtils.CaptureScreenShot("Innovator");
+		    //  var diff = Compare(
+		    //   @"C:\Users\kapatsevich\Desktop\Screenshots\GoogleLogo.png",
+		    //@"C:\Users\kapatsevich\Desktop\Screenshots\logo original.png");
+	    }
+	}
 }

@@ -128,88 +128,88 @@
 
 //public class InnovatorHelper : IDisposable
 //{
-//	public static Item ApplyAml(InnovatorConnection conn, string aml)
-//	{
-//		Validator.CheckParamatersForNull(aml);
-//		Validator.CheckParamatersForNull(conn);
-//		Item applyRes = conn.Innovator.applyAML(aml);
-//		if (!string.IsNullOrEmpty(applyRes.getErrorCode()))
-//		{
-//			ReportHelper.Instance.Info("Error on applying aml!!!");
-//			ReportHelper.Instance.Info(applyRes.getErrorDetail());
-//		}
+//    public static Item ApplyAml(InnovatorConnection conn, string aml)
+//    {
+//        Validator.CheckParamatersForNull(aml);
+//        Validator.CheckParamatersForNull(conn);
+//        Item applyRes = conn.Innovator.applyAML(aml);
+//        if (!string.IsNullOrEmpty(applyRes.getErrorCode()))
+//        {
+//            ReportHelper.Instance.Info("Error on applying aml!!!");
+//            ReportHelper.Instance.Info(applyRes.getErrorDetail());
+//        }
 
-//		return applyRes;
-//	}
+//        return applyRes;
+//    }
 
-//	public static string ActivateFeature(InnovatorConnection conn, string featureName)
-//	{
-//		Validator.CheckParamatersForNull(conn);
-//		string webServiceUrl = AppConfig.Instance.BaseUrl + "/Server/Licensing.asmx/ImportFeatureLicense";
-//		string postData = "encryptedFeatureLicense=" + WebUtility.UrlEncode(GetFeatureLicense(featureName));
-//		ICookieContainerProvider ccProvider =
-//			CookieContainerProviderFactory.GetCookieContainerProviderWrapper(new CookieContainer());
-//		HttpWebRequest webRequest =
-//			(HttpWebRequest)ApplicationRequestProvider.Instance.GetWebRequest(new Uri(webServiceUrl), ccProvider);
-//		webRequest.Headers.Set("AUTHUSER", conn.LogOnName);
-//		webRequest.Headers.Set("AUTHPASSWORD", conn.PasswordHash);
-//		webRequest.Headers.Set("DATABASE", conn.GetDatabaseName());
-//		webRequest.AllowWriteStreamBuffering = true;
-//		webRequest.Method = WebRequestMethods.Http.Post;
-//		webRequest.ContentLength = postData.Length;
-//		webRequest.ContentType = "application/x-www-form-urlencoded";
-//		bool isError = false;
-//		HttpWebResponse webResponse;
-//		try
-//		{
-//			if (postData.Length > 0)
-//			{
-//				using (var writer = new StreamWriter(webRequest.GetRequestStream()))
-//				{
-//					writer.Write(postData);
-//				}
-//			}
+//    public static string ActivateFeature(InnovatorConnection conn, string featureName)
+//    {
+//        Validator.CheckParamatersForNull(conn);
+//        string webServiceUrl = AppConfig.Instance.BaseUrl + "/Server/Licensing.asmx/ImportFeatureLicense";
+//        string postData = "encryptedFeatureLicense=" + WebUtility.UrlEncode(GetFeatureLicense(featureName));
+//        ICookieContainerProvider ccProvider =
+//            CookieContainerProviderFactory.GetCookieContainerProviderWrapper(new CookieContainer());
+//        HttpWebRequest webRequest =
+//            (HttpWebRequest)ApplicationRequestProvider.Instance.GetWebRequest(new Uri(webServiceUrl), ccProvider);
+//        webRequest.Headers.Set("AUTHUSER", conn.LogOnName);
+//        webRequest.Headers.Set("AUTHPASSWORD", conn.PasswordHash);
+//        webRequest.Headers.Set("DATABASE", conn.GetDatabaseName());
+//        webRequest.AllowWriteStreamBuffering = true;
+//        webRequest.Method = WebRequestMethods.Http.Post;
+//        webRequest.ContentLength = postData.Length;
+//        webRequest.ContentType = "application/x-www-form-urlencoded";
+//        bool isError = false;
+//        HttpWebResponse webResponse;
+//        try
+//        {
+//            if (postData.Length > 0)
+//            {
+//                using (var writer = new StreamWriter(webRequest.GetRequestStream()))
+//                {
+//                    writer.Write(postData);
+//                }
+//            }
 
-//			webResponse = (HttpWebResponse)webRequest.GetResponse();
-//		}
-//		catch (WebException ex)
-//		{
-//			isError = true;
-//			webResponse = (HttpWebResponse)ex.Response;
-//		}
+//            webResponse = (HttpWebResponse)webRequest.GetResponse();
+//        }
+//        catch (WebException ex)
+//        {
+//            isError = true;
+//            webResponse = (HttpWebResponse)ex.Response;
+//        }
 
-//		string result;
-//		using (var streamReader = new StreamReader(webResponse.GetResponseStream()))
-//		{
-//			result = streamReader.ReadToEnd();
-//		}
+//        string result;
+//        using (var streamReader = new StreamReader(webResponse.GetResponseStream()))
+//        {
+//            result = streamReader.ReadToEnd();
+//        }
 
-//		if (isError)
-//		{
-//			return "<Result>" + SecurityElement.Escape(result) + "</Result>";
-//		}
+//        if (isError)
+//        {
+//            return "<Result>" + SecurityElement.Escape(result) + "</Result>";
+//        }
 
-//		return result;
-//	}
+//        return result;
+//    }
 
-//	public static string GetFeatureLicense(string featureName)
-//	{
-//		string result;
-//		switch (featureName)
-//		{
-//			case "Aras.PremierSubscription":
-//				result = AppConfig.Instance.ArasPremierSubscriptionFeatureLicense;
-//				break;
-//			case "Aras.PDFViewer":
-//				result = AppConfig.Instance.ArasPdfViewerFeatureLicense;
-//				break;
-//			case "Aras.SelfServiceReporting":
-//				result = AppConfig.Instance.ArasSelfServiceReportingFeatureLicense;
-//				break;
-//			default:
-//				throw new NotSupportedException(featureName);
-//		}
+//    public static string GetFeatureLicense(string featureName)
+//    {
+//        string result;
+//        switch (featureName)
+//        {
+//            case "Aras.PremierSubscription":
+//                result = AppConfig.Instance.ArasPremierSubscriptionFeatureLicense;
+//                break;
+//            case "Aras.PDFViewer":
+//                result = AppConfig.Instance.ArasPdfViewerFeatureLicense;
+//                break;
+//            case "Aras.SelfServiceReporting":
+//                result = AppConfig.Instance.ArasSelfServiceReportingFeatureLicense;
+//                break;
+//            default:
+//                throw new NotSupportedException(featureName);
+//        }
 
-//		return result;
-//	}
+//        return result;
+//    }
 //}

@@ -151,46 +151,46 @@
 }
 
 
-// // TAF SMP
+//// // TAF SMP
 //public static class WebDriverFactory
 //{
-//	/// <summary>
-//	/// Create instance of IWebDriver depends on BrowserName
-//	/// </summary>
-//	/// <returns></returns>
-//	public static IWebDriver CreateWebDriver(IWebDriverSettings settings)
-//	{
-//		Guard.ForNull(settings, nameof(settings));
-//		IWebDriverFactory factory;
+//    /// <summary>
+//    /// Create instance of IWebDriver depends on BrowserName
+//    /// </summary>
+//    /// <returns></returns>
+//    public static IWebDriver CreateWebDriver(IWebDriverSettings settings)
+//    {
+//        Guard.ForNull(settings, nameof(settings));
+//        IWebDriverFactory factory;
 
-//		switch (settings.BrowserName)
-//		{
-//			case BrowserName.Chrome:
-//				factory = new ChromeDriverFactory();
-//				break;
+//        switch (settings.BrowserName)
+//        {
+//            case BrowserName.Chrome:
+//                factory = new ChromeDriverFactory();
+//                break;
 
-//			case BrowserName.ChromeBeta:
-//				factory = new ChromeBetaDriverFactory();
-//				break;
+//            case BrowserName.ChromeBeta:
+//                factory = new ChromeBetaDriverFactory();
+//                break;
 
-//			case BrowserName.Firefox:
-//				factory = new FirefoxDriverFactory();
-//				break;
+//            case BrowserName.Firefox:
+//                factory = new FirefoxDriverFactory();
+//                break;
 
-//			case BrowserName.InternetExplorer:
-//				factory = new InternetExplorerDriverFactory();
-//				break;
+//            case BrowserName.InternetExplorer:
+//                factory = new InternetExplorerDriverFactory();
+//                break;
 
-//			case BrowserName.MicrosoftEdge:
-//				factory = new EdgeDriverFactory();
-//				break;
+//            case BrowserName.MicrosoftEdge:
+//                factory = new EdgeDriverFactory();
+//                break;
 
-//			default:
-//				throw new InvalidEnumArgumentException(FormattableString.Invariant($"The browser is unsupported: {settings.BrowserName}"));
-//		}
+//            default:
+//                throw new InvalidEnumArgumentException(FormattableString.Invariant($"The browser is unsupported: {settings.BrowserName}"));
+//        }
 
-//		return factory.GetDriver(settings);
-//	}
+//        return factory.GetDriver(settings);
+//    }
 //}
 
 

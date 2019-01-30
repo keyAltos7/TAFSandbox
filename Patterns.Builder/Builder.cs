@@ -93,9 +93,9 @@
 }
 
 
-///// <summary>
-///// Configures the targets
-///// </summary>
+/// <summary>
+/// Configures the targets
+/// </summary>
 //public class TargetBuilder
 //{
 //    private readonly string _friendlyName;
@@ -142,11 +142,9 @@
 
 
 //public static ITarget Tab(string name) =
-//Target.
-//The(FormattableString.Invariant($"{name}")).
-//LocatedBy(By.CssSelector(FormattableString.Invariant($"li[title='{name}']"))).
+//Target.The(FormattableString.Invariant($"{name}")).LocatedBy(By.CssSelector(FormattableString.Invariant($"li[title='{name}']"))).
 //RelativeTo(TabsPanel);
 
-//		public static ITarget ItemTypeLabel =
-//			Target.The("Name of ItemType").InFrame(PageElements.WorkFrame).LocatedBy(By.CssSelector("span.label_span"));
+//public static ITarget ItemTypeLabel =
+//    Target.The("Name of ItemType").InFrame(PageElements.WorkFrame).LocatedBy(By.CssSelector("span.label_span"));
 

@@ -1,12 +1,19 @@
 ﻿namespace TAFSandbox.Utils
 {
-    using NUnit.Framework;
+	using System;
+
+	using NUnit.Framework;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Interactions;
     using System.Collections.ObjectModel;
+    using System.Drawing;
+    using System.Drawing.Imaging;
+    using System.IO;
     using System.Threading;
 
-    /// <summary>    
+	using OpenQA.Selenium.Remote;
+
+	/// <summary>    
     /// DriverUtils is Selenium WebDriver Facade
     /// This class contains general methods to enhance existing WebDriver functionality
     /// </summary>
@@ -38,7 +45,8 @@
         {
             TestContext.WriteLine($"Set '{text} into '{locator}'");
             var driver = GetDriverByKey(driverKey);
-            driver.FindElement(locator).SendKeys(text);
+	        driver.FindElement(locator).Clear();
+			driver.FindElement(locator).SendKeys(text);
         }
 
         public static void Submit(By locator)
@@ -92,8 +100,61 @@
         private static IWebDriver GetDriverByKey(string driverKey)
         {    
             return DriverPool.GetDriver(driverKey);
-        }    
-        
-            
-    }
+        }
+
+		/// <summary>
+		/// Captures the element screen shot.
+		/// </summary>
+		/// <param name="element">The element.</param>
+		/// <param name="uniqueName">Name of the unique.</param>
+		/// <returns>returns the screenshot  image </returns>
+		public static Image CaptureElementScreenShot(By locator, string uniqueName)
+		{
+			var driver = GetDriverByKey(TestNameResolver.GetCurrentTestName());
+			var tempFileName = $@"C:\Users\kapatsevich\Desktop\Screenshots\Temp{uniqueName}.png";
+			var cropedFileName = $@"C:\Users\kapatsevich\Desktop\Screenshots\{uniqueName}.png";
+			var element = driver.FindElement(locator);
+			Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+			screenshot.SaveAsFile(tempFileName, ScreenshotImageFormat.Png);
+
+			Image img = Bitmap.FromFile(tempFileName);
+			Rectangle rect = new Rectangle();
+
+			if (element != null)
+			{
+				// Get the Width and Height of the WebElement using
+				int width = element.Size.Width;
+				//int height = element.Size.Height;
+				int height = element.Size.Height;
+
+				// Get the Location of WebElement in a Point.
+				// This will provide X & Y co-ordinates of the WebElement
+				Point p = element.Location;
+
+				// Create a rectangle using Width, Height and element location
+				rect = new Rectangle(p.X, p.Y, width, height);
+			}
+
+			// croping the image based on rect.
+			Bitmap bmpImage = new Bitmap(img);
+			var cropedImag = bmpImage.Clone(rect, bmpImage.PixelFormat);
+			cropedImag.Save(cropedFileName, ImageFormat.Png);
+
+			return cropedImag;
+		}
+
+	    /// <summary>
+	    /// Captures the  screen shot.
+	    /// </summary>
+	    /// <param name="uniqueName">Name of the unique.</param>
+	    /// <returns>returns the screenshot  image </returns>
+	    public static void CaptureScreenShot(string uniqueName)
+	    {
+		    var driver = GetDriverByKey(TestNameResolver.GetCurrentTestName());
+		    var tempFileName = $@"C:\Users\kapatsevich\Desktop\Screenshots\{uniqueName}_{((RemoteWebDriver)driver).Capabilities["browserName"]}.png";
+		    Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+		    screenshot.SaveAsFile(tempFileName, ScreenshotImageFormat.Png);
+	    }
+	}
 }
+

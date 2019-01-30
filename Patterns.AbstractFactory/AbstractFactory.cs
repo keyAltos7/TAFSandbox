@@ -6,7 +6,7 @@
     {
         static void Main(string[] args)
         {
-            Hero elf = new Hero(new ElfFactory());
+            Hero elf = new Hero(new WarriorFactory());
             Console.WriteLine($"Elf");
             elf.Hit();
             elf.Run();
@@ -122,15 +122,15 @@
 ///// </summary>
 //internal interface IWebDriverFactory
 //{
-//	/// <summary>
-//	/// Create options
-//	/// </summary>
-//	DriverOptions CreateOptions(WebDriverFactoryArgs args);
+//    /// <summary>
+//    /// Create options
+//    /// </summary>
+//    DriverOptions CreateOptions(WebDriverFactoryArgs args);
 
-//	/// <summary>
-//	/// Create Driver
-//	/// </summary>
-//	IWebDriver CreateDriver(DriverOptions options);
+//    /// <summary>
+//    /// Create Driver
+//    /// </summary>
+//    IWebDriver CreateDriver(DriverOptions options);
 //}
 
 ///// <summary>
@@ -138,19 +138,19 @@
 ///// </summary>
 //internal class ChromeDriverFactory : IWebDriverFactory
 //{
-//	/// <inheritdoc />
-//	public IWebDriver CreateDriver(DriverOptions options)
-//	{
-//		return new ChromeDriver(options as ChromeOptions);
-//	}
+//    /// <inheritdoc />
+//    public IWebDriver CreateDriver(DriverOptions options)
+//    {
+//        return new ChromeDriver(options as ChromeOptions);
+//    }
 
-//	/// <inheritdoc />
-//	public DriverOptions CreateOptions(WebDriverFactoryArgs args)
-//	{
-//		Validator.CheckParamatersForNull(args);
-//		var options = ChromeOptionsFactory.Create(args);
-//		return options;
-//	}
+//    /// <inheritdoc />
+//    public DriverOptions CreateOptions(WebDriverFactoryArgs args)
+//    {
+//        Validator.CheckParamatersForNull(args);
+//        var options = ChromeOptionsFactory.Create(args);
+//        return options;
+//    }
 //}
 
 //var options = factory.CreateOptions(args);

@@ -72,7 +72,11 @@ namespace ConsoleSandbox
     {
         static int Main()
         {
-            return TestClass.GetZero();
+	        int.TryParse("", out var param);
+	        Console.WriteLine(param);
+			return TestClass.GetZero();
+
+	        
         }
-    }
+	}
 }

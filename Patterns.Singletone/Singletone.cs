@@ -64,26 +64,25 @@
 // // I11 STAF
 //namespace Framework.Helper
 //{
-//	/// <summary>
-//	/// Wrapper for IWebDriver
-//	/// </summary>
-//	public static class WebDriver
-//	{
-
-//		private static IWebDriverFacade _instance;
-//		/// <summary>
-//		/// Implement the singleton for class WebDriver
-//		/// </summary>
-//		public static IWebDriverFacade Instance
-//		{
-//			get
-//			{
-//				if (_instance == null || _instance.IsDead)
-//				{
-//					_instance = WebDriverFacadeFactory.Create();
-//				}
-//				return _instance;
-//			}
-//		}
-//	}
+//    /// <summary>
+//    /// Wrapper for IWebDriver
+//    /// </summary>
+//    public static class WebDriver
+//    {
+//        private static IWebDriverFacade _instance;
+//        /// <summary>
+//        /// Implement the singleton for class WebDriver
+//        /// </summary>
+//        public static IWebDriverFacade Instance
+//        {
+//            get
+//            {
+//                if (_instance == null || _instance.IsDead)
+//                {
+//                    _instance = WebDriverFacadeFactory.Create();
+//                }
+//                return _instance;
+//            }
+//        }
+//    }
 //}
