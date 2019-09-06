@@ -120,3 +120,19 @@ namespace PatternsTrainingExamples
 //    }
 //}
 
+//	public class TreeStructureModel : IEnumerable<TreeNodeModel>, IEquatable<TreeStructureModel>
+///// <summary>
+///// Nodes of tree structure
+///// </summary>
+//private readonly List<TreeNodeModel> nodes;
+
+///// <summary>
+///// Initializes a new instance of the <see cref="TreeStructureModel"/> class
+///// </summary>
+///// <param name="nodes"></param>
+//public TreeStructureModel(List<TreeNodeModel> nodes)
+//{
+//this.nodes = Guard.NotNull(nodes, nameof(nodes)).ToList();
+//}
+
+

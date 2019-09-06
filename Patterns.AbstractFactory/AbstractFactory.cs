@@ -6,7 +6,7 @@
     {
         static void Main(string[] args)
         {
-            Hero elf = new Hero(new WarriorFactory());
+            Hero elf = new Hero(new ElfFactory());
             Console.WriteLine($"Elf");
             elf.Hit();
             elf.Run();
@@ -116,42 +116,73 @@
     }
 }
 
-
-///// <summary>
-///// Factory for local WebDriver
-///// </summary>
-//internal interface IWebDriverFactory
+//public abstract class BaseDriverFactory
 //{
-//    /// <summary>
-//    /// Create options
-//    /// </summary>
-//    DriverOptions CreateOptions(WebDriverFactoryArgs args);
 
-//    /// <summary>
-//    /// Create Driver
-//    /// </summary>
-//    IWebDriver CreateDriver(DriverOptions options);
+//	public IWebDriver GetDriver(IWebDriverSettings webDriverSettings)
+
+//	protected abstract DriverOptions InitOptions(IWebDriverSettings webDriverSettings);
+
+//	protected abstract IWebDriver InitDriverWithOptions(DriverOptions driverOptions);
+
+//	protected abstract DesiredCapabilities InitRemoteDriverCapabilities(IWebDriverSettings webDriverSettings);
 //}
 
-///// <summary>
-///// Create ChromeDriver
-///// </summary>
-//internal class ChromeDriverFactory : IWebDriverFactory
-//{
-//    /// <inheritdoc />
-//    public IWebDriver CreateDriver(DriverOptions options)
-//    {
-//        return new ChromeDriver(options as ChromeOptions);
-//    }
+// public class ChromeDriverFactory : BaseDriverFactory
 
-//    /// <inheritdoc />
-//    public DriverOptions CreateOptions(WebDriverFactoryArgs args)
-//    {
-//        Validator.CheckParamatersForNull(args);
-//        var options = ChromeOptionsFactory.Create(args);
-//        return options;
-//    }
+//public static class WebDriverFactory
+//{
+//public static IWebDriver CreateWebDriver(IWebDriverSettings settings)
+//{
+//Guard.ForNull(settings, nameof(settings));
+//BaseDriverFactory factory;
+
+//	switch (settings.BrowserName)
+//{
+//	case BrowserName.Chrome:
+//	factory = new ChromeDriverFactory();
+//	break;
+
+//	case BrowserName.ChromeBeta:
+//	factory = new ChromeBetaDriverFactory();
+//	break;
+
+//	case BrowserName.HeadlessChrome:
+//	factory = new HeadlessChromeDriverFactory();
+//	break;
+
+//	case BrowserName.Firefox60:
+//	factory = new FirefoxDriverFactory("60");
+//	break;
+
+//	case BrowserName.Firefox68:
+//	factory = new FirefoxDriverFactory("68");
+//	break;
+
+//	case BrowserName.HeadlessFirefox60:
+//	factory = new HeadlessFirefoxDriverFactory("60");
+//	break;
+
+//	case BrowserName.HeadlessFirefox68:
+//	factory = new HeadlessFirefoxDriverFactory("68");
+//	break;
+
+//	case BrowserName.InternetExplorer:
+//	factory = new InternetExplorerDriverFactory();
+//	break;
+
+//	case BrowserName.HeadlessInternetExplorer:
+//	factory = new HeadlessInternetExplorerDriverFactory();
+//	break;
+
+//	case BrowserName.MicrosoftEdge:
+//	factory = new EdgeDriverFactory();
+//	break;
+
+//	default:
+//	throw new InvalidEnumArgumentException(FormattableString.Invariant($"The browser is unsupported: {settings.BrowserName}"));
 //}
 
-//var options = factory.CreateOptions(args);
-//return factory.CreateDriver(options);
+//return factory.GetDriver(settings);
+//}
+//}

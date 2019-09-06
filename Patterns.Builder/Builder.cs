@@ -80,12 +80,12 @@
         public int Age { get; set; }            // возраст
         public bool IsMarried { get; set; }      // женат/замужем
 
-        public static UserBuilder CreateBuilder()
-        {
-            return new UserBuilder();
-        }
+		public static UserBuilder CreateBuilder()
+		{
+			return new UserBuilder();
+		}
 
-        public override string ToString()
+		public override string ToString()
         {
             return $"{nameof(this.Name)}: {this.Name}, {nameof(this.Company)}: {this.Company}, {nameof(this.Age)}: {this.Age}, {nameof(this.IsMarried)}: {this.IsMarried}";
         }

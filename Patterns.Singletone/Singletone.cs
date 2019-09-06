@@ -61,28 +61,32 @@
     }
 }
 
-// // I11 STAF
-//namespace Framework.Helper
+
+//public sealed class ExtentReportSingletonFactory
 //{
-//    /// <summary>
-//    /// Wrapper for IWebDriver
-//    /// </summary>
-//    public static class WebDriver
-//    {
-//        private static IWebDriverFacade _instance;
-//        /// <summary>
-//        /// Implement the singleton for class WebDriver
-//        /// </summary>
-//        public static IWebDriverFacade Instance
-//        {
-//            get
-//            {
-//                if (_instance == null || _instance.IsDead)
-//                {
-//                    _instance = WebDriverFacadeFactory.Create();
-//                }
-//                return _instance;
-//            }
-//        }
-//    }
+//	private static ExtentReports instance;
+
+//	public static ExtentReports GetInstance(
+//		IReportSettings reportSettings,
+//		BrowserInfo browserInfo,
+//		string extentReportsConfigPath)
+//	{
+//		lock (Lock)
+//		{
+//			if (instance == null)
+//			{
+//				var directory = Path.GetDirectoryName(typeof(ExtentReportsObserver).Assembly.Location);
+
+//				if (string.IsNullOrEmpty(extentReportsConfigPath))
+//				{
+//					extentReportsConfigPath =
+//						FormattableString.Invariant($"{directory}\\{ExtentReportsDefaultConfig}");
+//				}
+
+//				instance = CreateExtentReport(reportSettings, browserInfo, extentReportsConfigPath);
+//			}
+
+//			return instance;
+//		}
+//	}
 //}
